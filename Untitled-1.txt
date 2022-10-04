@@ -1,0 +1,24 @@
+solana --version
+sugar --version
+
+//5skCZN5ymR5zE9oNuJvTjnGWh65dQYrik69mcmYiLH33
+solana-keygen new --outfile ./wallets/owner.json
+//EkwxHgffZRsfFwxjaD8dPH8PRYbJLFX5EVYwUAx2FfXF
+solana-keygen new --outfile ./wallets/Treasury.json
+//FuiYnxgqZzKvYcLhgcuaJszGDWv8axaUXYJwgzdVrV5T
+solana-keygen new --outfile ./wallets/Creator.json
+
+solana config set --keypair ./wallets/owner.json
+solana config set --url https://metaplex.devnet.rpcpool.com/
+
+sugar launch
+
+//candy machine:4epoVMTuQarEJ5Q2qvMmVGMsNHuLxsd55LHZ5Zsxfvcr
+
+git clone https://github.com/metaplex-foundation/candy-machine-ui ./candy-machine-ui/
+cd candy-machine-ui
+yarn install 
+
+cd candy-machine-ui
+cp .env.example .env
+yarn start
